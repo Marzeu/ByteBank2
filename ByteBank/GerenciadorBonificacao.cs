@@ -10,7 +10,7 @@ namespace ByteBank
     public class GerenciadorBonificacao
     {
         private double _totalBonificacao;
-        public void Registrar(Funcionario funcionario)
+        public void Registrar(Autencavel funcionario)
         {
             _totalBonificacao += funcionario.GetBonificacao();
         }
