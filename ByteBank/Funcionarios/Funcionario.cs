@@ -14,7 +14,7 @@ namespace ByteBank.Funcionarios
         public string CPF { get; private set; }
         public double Salario { get; protected set; }
 
-        public Autncavel(double salario, string cpf)
+        public Funcionario(double salario, string cpf)
         {
             Console.WriteLine("Criando FUNCIONARIO");
 
