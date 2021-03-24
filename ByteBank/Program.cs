@@ -14,53 +14,46 @@ namespace ByteBank
         {
             try
             {
-                ContaCorrente conta = new ContaCorrente(7480, 874150);
-                ContaCorrente conta2 = new ContaCorrente(7480, 456478);
+                ContaCorrente conta1 = new ContaCorrente(4564, 743132);
+                ContaCorrente conta2 = new ContaCorrente(3487, 123876);
 
-                conta2.Transferir(-10, conta);
-
-                conta.Depositar(50);
-                Console.WriteLine(conta.Saldo);
-                conta.Sacar(500);
+                //conta1.Transferir(10000, conta2);
+                conta1.Sacar(10000);
             }
-            catch (ArgumentException ex)
+            catch (OperacaoFinanceiraException e)
             {
-                if (ex.ParamName == "numero")
-                {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
 
-                }
+                Console.WriteLine("Informação da INNER EXCEPTION (exceção interna):");
 
-                Console.WriteLine("Argumento com problema: " + ex.ParamName);
-                Console.WriteLine("Ocorreu uma execeção do tipo ArgumentException");
-                Console.WriteLine(ex.Message);
-            }
-            catch (SaldoInsuficienteException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("Exceção do tipo SaldoInsuficienteException");
+                Console.WriteLine(e.InnerException.Message);
+                Console.WriteLine(e.InnerException.StackTrace);
             }
 
-            Console.WriteLine(ContaCorrente.TaxaOperacao);
+
+            // Console.WriteLine(ContaCorrente.TaxaOperacao);
             //CalcularBonificacao();
             UsarSistema();
 
+            Console.WriteLine("Execução finalizada. Tecle enter para sair");
             Console.ReadLine();
         }
 
         public static void UsarSistema()
         {
-            SistemaInterno sistemaInterno = new SistemaInterno();
+            //  SistemaInterno sistemaInterno = new SistemaInterno();
 
-            Diretor roberta = new Diretor("159.753.398-04");
-            roberta.Nome = "Roberta";
-            roberta.Senha = "123";
+            // Diretor roberta = new Diretor("159.753.398-04");
+            //  roberta.Nome = "Roberta";
+            //   roberta.Senha = "123";
 
-            GerenteDeContas camila = new GerenteDeContas("326.985.628-89");
-            camila.Nome = "Camila";
-            camila.Senha = "abc";
+            //   GerenteDeContas camila = new GerenteDeContas("326.985.628-89");
+            //   camila.Nome = "Camila";
+            //   camila.Senha = "abc";
 
-            ParceiroComercial parceiro = new ParceiroComercial();
-            parceiro.Senha = "123456";
+            //   ParceiroComercial parceiro = new ParceiroComercial();
+            //    parceiro.Senha = "123456";
 
             // sistemaInterno.Logar(parceiro, "123456");
 
@@ -72,20 +65,20 @@ namespace ByteBank
         {
             GerenciadorBonificacao gerenciadorBonificacao = new GerenciadorBonificacao();
 
-            Designer pedro = new Designer("833.222.048-39");
-            pedro.Nome = "Pedro";
+            //   Designer pedro = new Designer("833.222.048-39");
+            //   pedro.Nome = "Pedro";
 
-            Diretor roberta = new Diretor("159.753.398-04");
-            roberta.Nome = "Roberta";
+            //   Diretor roberta = new Diretor("159.753.398-04");
+            //   roberta.Nome = "Roberta";
 
-            Auxiliar igor = new Auxiliar("981.198.778-53");
-            igor.Nome = "Igor";
+            //   Auxiliar igor = new Auxiliar("981.198.778-53");
+            //   igor.Nome = "Igor";
 
-            GerenteDeContas camila = new GerenteDeContas("326.985.628-89");
-            camila.Nome = "Camila";
+            //   GerenteDeContas camila = new GerenteDeContas("326.985.628-89");
+            //    camila.Nome = "Camila";
 
-            Desenvolvedor guilherme = new Desenvolvedor("456.175.468-20");
-            guilherme.Nome = "Guilherme";
+            //    Desenvolvedor guilherme = new Desenvolvedor("456.175.468-20");
+            //    guilherme.Nome = "Guilherme";
 
             //  gerenciadorBonificacao.Registrar(pedro);
             //  gerenciadorBonificacao.Registrar(roberta);
