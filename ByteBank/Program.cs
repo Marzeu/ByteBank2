@@ -12,6 +12,35 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
+            try
+            {
+                ContaCorrente conta = new ContaCorrente(7480, 874150);
+                ContaCorrente conta2 = new ContaCorrente(7480, 456478);
+
+                conta2.Transferir(-10, conta);
+
+                conta.Depositar(50);
+                Console.WriteLine(conta.Saldo);
+                conta.Sacar(500);
+            }
+            catch (ArgumentException ex)
+            {
+                if (ex.ParamName == "numero")
+                {
+
+                }
+
+                Console.WriteLine("Argumento com problema: " + ex.ParamName);
+                Console.WriteLine("Ocorreu uma execeção do tipo ArgumentException");
+                Console.WriteLine(ex.Message);
+            }
+            catch (SaldoInsuficienteException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Exceção do tipo SaldoInsuficienteException");
+            }
+
+            Console.WriteLine(ContaCorrente.TaxaOperacao);
             //CalcularBonificacao();
             UsarSistema();
 
@@ -33,10 +62,10 @@ namespace ByteBank
             ParceiroComercial parceiro = new ParceiroComercial();
             parceiro.Senha = "123456";
 
-            sistemaInterno.Logar(parceiro, "123456");
+            // sistemaInterno.Logar(parceiro, "123456");
 
-            sistemaInterno.Logar(roberta, "123");
-            sistemaInterno.Logar(camila, "abc");
+            // sistemaInterno.Logar(roberta, "123");
+            //  sistemaInterno.Logar(camila, "abc");
         }
 
         public static void CalcularBonificacao()
@@ -58,14 +87,14 @@ namespace ByteBank
             Desenvolvedor guilherme = new Desenvolvedor("456.175.468-20");
             guilherme.Nome = "Guilherme";
 
-            gerenciadorBonificacao.Registrar(pedro);
-            gerenciadorBonificacao.Registrar(roberta);
-            gerenciadorBonificacao.Registrar(igor);
-            gerenciadorBonificacao.Registrar(camila);
-            gerenciadorBonificacao.Registrar(guilherme);
+            //  gerenciadorBonificacao.Registrar(pedro);
+            //  gerenciadorBonificacao.Registrar(roberta);
+            //   gerenciadorBonificacao.Registrar(igor);
+            //   gerenciadorBonificacao.Registrar(camila);
+            //   gerenciadorBonificacao.Registrar(guilherme);
 
 
-            Console.WriteLine("Total de bonificação do mês " + gerenciadorBonificacao.GetTotalBonificacao());
+            //   Console.WriteLine("Total de bonificação do mês " + gerenciadorBonificacao.GetTotalBonificacao());
         }
     }
 }
