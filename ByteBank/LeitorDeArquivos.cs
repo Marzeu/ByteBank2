@@ -26,7 +26,7 @@ namespace ByteBank
 
             throw new IOException();
 
-            return "Linha do arquivo";
+            //return "Linha do arquivo";
         }
 
         public void Dispose()
